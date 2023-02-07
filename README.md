@@ -122,11 +122,13 @@ EOF
 ```
 
 ## 主版本服务可用性访问测试：
+
 ```bash
+
 curl_client="$(kubectl get pod -n curl -l app=curl -o jsonpath='{.items[0].metadata.name}')"
 kubectl exec "$curl_client" -n curl -c curl -- curl -si pipy-ok-v1.pipy:8080
 kubectl exec "$curl_client" -n curl -c curl -- curl -si pipy-ok.pipy:8080
-```bash
+```
 
 
 # 5. 配置灰度版本流量策略
