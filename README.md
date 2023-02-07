@@ -77,7 +77,7 @@ osm namespace add curl
 kubectl apply -n curl -f https://raw.githubusercontent.com/cybwan/osm-edge-start-demo/main/demo/traffic-split-v4/curl.curl.yaml
 ```
 
-##等待依赖的 POD 正常启动
+## 等待依赖的 POD 正常启动
 
 ```bash
 
