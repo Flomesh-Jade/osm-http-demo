@@ -61,14 +61,18 @@ kubectl apply -n pipy -f https://raw.githubusercontent.com/cybwan/osm-edge-start
 ```
 
 ## 模拟客户端
+
 ```bash
+
 kubectl create namespace curl
 osm namespace add curl
 kubectl apply -n curl -f https://raw.githubusercontent.com/cybwan/osm-edge-start-demo/main/demo/traffic-split-v4/curl.curl.yaml
 ```
 
 ##等待依赖的 POD 正常启动
+
 ```bash
+
 kubectl wait --for=condition=ready pod -n pipy -l app=pipy-ok --timeout=180s
 kubectl wait --for=condition=ready pod -n curl -l app=curl --timeout=180s
 ```
@@ -76,7 +80,9 @@ kubectl wait --for=condition=ready pod -n curl -l app=curl --timeout=180s
 # 4. 配置主版本服务流量策略
 
 ## HTTPRouteGroup配置：
+
 ```bash
+
 cat <<EOF | kubectl apply -n pipy -f -
 apiVersion: specs.smi-spec.io/v1alpha4
 kind: HTTPRouteGroup
@@ -88,6 +94,7 @@ spec:
     methods:
     - GET
 EOF
+
 ```
 
 ## 主版本服务v1，TrafficTarget配置：
@@ -139,10 +146,12 @@ spec:
     methods:
     - GET
 EOF
-```bash
+```
 
 ##灰度版本服务v2，TrafficTarget配置：
+
 ```bash
+
 cat <<EOF | kubectl apply -n pipy -f -
 kind: TrafficTarget
 apiVersion: access.smi-spec.io/v1alpha3
@@ -166,7 +175,9 @@ EOF
 ```
 
 ## 设置灰度策略
+
 ```bash
+
 cat <<EOF | kubectl apply -n pipy -f -
 apiVersion: split.smi-spec.io/v1alpha4
 kind: TrafficSplit
@@ -198,7 +209,9 @@ spec:
 EOF
 ```
 ## 灰度访问测试：
+
 ```bash
+
 curl_client="$(kubectl get pod -n curl -l app=curl -o jsonpath='{.items[0].metadata.name}')"
 kubectl exec "$curl_client" -n curl -c curl -- curl -si pipy-ok.pipy:8080
 kubectl exec "$curl_client" -n curl -c curl -- curl -si pipy-ok.pipy:8080 -H "version:v2"
