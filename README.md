@@ -150,7 +150,7 @@ spec:
 EOF
 ```
 
-##灰度版本服务v2，TrafficTarget配置：
+## 灰度版本服务v2，TrafficTarget配置：
 
 ```bash
 
