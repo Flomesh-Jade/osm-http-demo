@@ -36,18 +36,18 @@ osm install \
 ```
 🔴 注意：
 参数含义：
---osm_namespace：osm控制面所在命名空间，命令会自动创建该命名空间
---mesh-name：osm-mesh名称
---set=osm.certificateProvider.kind=tresor：使用 OSM 的 Tresor 证书发行者
---set=osm.image.registry=flomesh：仓库地址，默认flomesh，要求能够访问dockerhub，否则需要导入私有镜像库
---set=osm.sidecarLogLevel=warn：sidecar日志级别，支持warn，debug，error，info
---set=osm.controllerLogLevel=warn：controller日志级别，支持warn，debug，error，info
---set=osm.remoteLogging.enable=true：开启日志
+--osm_namespace：osm控制面所在命名空间，命令会自动创建该命名空间 \
+--mesh-name：osm-mesh名称 \
+--set=osm.certificateProvider.kind=tresor：使用 OSM 的 Tresor 证书发行者 \
+--set=osm.image.registry=flomesh：仓库地址，默认flomesh，要求能够访问dockerhub，否则需要导入私有镜像库 \
+--set=osm.sidecarLogLevel=warn：sidecar日志级别，支持warn，debug，error，info \
+--set=osm.controllerLogLevel=warn：controller日志级别，支持warn，debug，error，info \
+--set=osm.remoteLogging.enable=true：开启日志 \
+--set=osm.remoteLogging.sampledFraction=1.0：traceing采样率 \
 clickhouse 相关的参数，需要根据实际情况修改❗   
-    --set=osm.remoteLogging.address=10.25.0.100 \
-    --set=osm.remoteLogging.port=8123 \
-    --set=osm.remoteLogging.authorization="Basic ZGVmYXVsdDoxMjM0NTY=" \
---set=osm.remoteLogging.sampledFraction=1.0：traceing采样率
+    --set=osm.remoteLogging.address=10.25.0.100 ： 服务器地址
+    --set=osm.remoteLogging.port=8123 ：服务端口
+    --set=osm.remoteLogging.authorization="Basic ZGVmYXVsdDoxMjM0NTY=" ： 账户密码base64编码 \
 
 # 3. 部署demo服务
 
