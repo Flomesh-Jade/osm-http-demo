@@ -47,7 +47,7 @@ osm install \
 clickhouse 相关的参数，需要根据实际情况修改❗   
     --set=osm.remoteLogging.address=10.25.0.100 ： 服务器地址 \
     --set=osm.remoteLogging.port=8123 ：服务端口 \
-    --set=osm.remoteLogging.authorization="Basic ZGVmYXVsdDoxMjM0NTY=" ： 账户密码base64编码 \
+    --set=osm.remoteLogging.authorization="Basic ZGVmYXVsdDoxMjM0NTY=" ： 账户密码base64编码 
 
 部署完成后，查看osm控制面所在命名空间状态：
 ```bash
