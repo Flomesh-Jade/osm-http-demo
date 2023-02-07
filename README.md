@@ -52,7 +52,9 @@ clickhouse 相关的参数，需要根据实际情况修改❗
 # 3. 部署demo服务
 
 ## 模拟服务端
+
 ```bash
+
 kubectl create namespace pipy
 osm namespace add pipy
 kubectl apply -n pipy -f https://raw.githubusercontent.com/cybwan/osm-edge-start-demo/main/demo/traffic-split-v4/pipy-ok.pipy.yaml
