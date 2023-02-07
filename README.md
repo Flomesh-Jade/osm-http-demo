@@ -45,9 +45,9 @@ osm install \
 --set=osm.remoteLogging.enable=true：开启日志 \
 --set=osm.remoteLogging.sampledFraction=1.0：traceing采样率 \
 clickhouse 相关的参数，需要根据实际情况修改❗   
-    --set=osm.remoteLogging.address=10.25.0.100 ： 服务器地址
-    --set=osm.remoteLogging.port=8123 ：服务端口
-    --set=osm.remoteLogging.authorization="Basic ZGVmYXVsdDoxMjM0NTY=" ： 账户密码base64编码 \
+    --set=osm.remoteLogging.address=10.25.0.100 ： 服务器地址 \
+    --set=osm.remoteLogging.port=8123 ：服务端口 \
+    --set=osm.remoteLogging.authorization="Basic ZGVmYXVsdDoxMjM0NTY=" ： 账户密码base64编码
 
 # 3. 部署demo服务
 
